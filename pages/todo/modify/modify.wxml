@@ -1,0 +1,19 @@
+<!--pages/todolist/modify/todo_modify.wxml-->
+<view class="container container-gray">
+	<view class="group">
+		<view class="group-header">{{id}}</view>
+		<view class="group-body">
+			<view class="input-list">
+				<view class="input-item">
+					<text class="input-item-label">待办事项</text>
+					<view class="input-item-content">
+						<input type="text" placeholder="请输入待办事项" model:value="{{title}}"></input>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="btn-submit">
+		<button class="btn-block btn-orange" bindtap="submitModify">提交</button>
+	</view>
+</view>

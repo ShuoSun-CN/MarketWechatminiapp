@@ -45,6 +45,41 @@ Page({
    */
   onLoad: function (options) {
     // this.initLoginMsg();
+    this.autoLogin();
+  },
+
+  autoLogin() {
+    let that = this;
+    let cookie = wx.getStorageSync("token");
+    if (cookie !== '') {
+      wx.request({
+        url: 'http://localhost:8088/login?src=miniapp_auto',
+        method: "POST",
+        header: {
+          "content-type": "application/x-www-form-urlencoded",
+          "x-requested-with": "XMLHttpRequest",
+          'cookie': wx.getStorageSync("token")
+        },
+        success(res) {
+          that.setData({
+            isLogin: true,
+            avatarUrl: "http://localhost:8088" + res
+              .data.avatar,
+            userId: res.data.userId,
+            permission: res.data.userPermission,
+            type: res.data.userType
+          })
+        }
+      })
+    }
+
+  },
+
+  logout() {
+    wx.setStorageSync("token", "");
+    this.setData({
+      isLogin: false
+    })
   },
 
   previewHead: function () {
@@ -65,7 +100,7 @@ Page({
       method: 'POST',
       success(res) {
         console.log(res)
-        if(res.data.resCode === "00000") {
+        if (res.data.resCode === "00000") {
           wx.showToast({
             title: '登录成功',
           });
@@ -73,7 +108,7 @@ Page({
           that.setData({
             isLogin: true,
             avatarUrl: "http://localhost:8088" + res
-            .data.avatar,
+              .data.avatar,
             userId: res.data.userId,
             permission: res.data.userPermission,
             type: res.data.userType

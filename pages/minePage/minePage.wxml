@@ -1,6 +1,49 @@
 <!--pages/minePage/minePage.wxml-->
 <!-- <import src='template.wxml' /> -->
 <view wx:if="{{isLogin}}">
+<!-- 用户列表选项 -->
+<scroll-view class='scbg' scroll-y='true'>
+  <view class="parent_catainer">
+    <!-- 头部 -->
+    <!-- style="background-image: url('/images/persons/mind_head_bg.jpg');" -->
+    <view class="container_head">
+      <image class="head_img" src="../../res/images/bg.jpg"></image>
+      <view class="head_pers_info" bindtap="head_pers_info">
+        <view class="head_pic">
+          <image class="head_pic_content" mode="aspectFit" src="{{avatarUrl}}"></image>
+        </view>
+        <view class="inf_content">
+          <text class="user_info">ID：{{ID}}</text>
+          <text class="family_info_ct_phone">用户类型：{{permission}}</text>
+          <text class="family_info_ct">邮箱：{{email}}</text>
+        </view>
+      </view>
+    </view>
+ 
+    <view class="userItemListView">
+      <!-- <view class="my_priview_md" bindtap="myappointpage">
+        <image class="my_priview" src="/images/mine_fiend.png"></image>
+        <text>我的预约</text>
+        <view class="arrow"></view>
+      </view> -->
+      <view class="my_priview_md" bindtap="toOrder">
+        <image class="my_priview" src="/images/mine_fiend.png"></image>
+        <text>我的订单</text>
+        <view class="arrow"></view>
+      </view>
+    </view>
+ 
+    <view class="userItemListView">
+      <view class="my_priview_md" bindtap="logout">
+        <image class="my_priview" src="/images/mine_fiend.png"></image>
+        <text>退出登录</text>
+        <view class="arrow"></view>
+      </view>
+    </view>
+ 
+    <view class="last_view"></view>
+  </view>
+</scroll-view>
   <view class='container'>
 
     <!--头像名称-->
@@ -41,6 +84,7 @@
 
 <!--pages/login/login.wxml-->
 <view wx:if="{{!isLogin}}">
+
   <view class="content">
     <view class="account">
       <view class="title">账号</view>

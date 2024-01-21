@@ -52,7 +52,8 @@ App({
      },
      globalData: {
           userInfo: null,
-          isVersionHigh: false
+          isVersionHigh: false,
+          globalLoginStatus: false
      },
      func: {
           httpRequest: httpRequest.httpRequest,

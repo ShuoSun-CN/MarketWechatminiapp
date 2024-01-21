@@ -14,7 +14,10 @@
     "pages/specialtyOrderConfirm/specialtyOrderConfirm",
     "pages/order/order",
     "pages/specialty_order/specialty_order",
-    "pages/house_order/house_order"
+    "pages/house_order/house_order",
+    "pages/todo/add/add",
+    "pages/todo/index/index",
+    "pages/todo/modify/modify"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,6 +42,12 @@
         "text": "特产",
         "iconPath": "res/images/icon_specity.png",
         "selectedIconPath": "res/images/icon_specity_select.png"
+      },
+      {
+        "pagePath": "pages/todo/index/index",
+        "text": "待办事项",
+        "iconPath": "res/images/todo-o.png",
+        "selectedIconPath": "res/images/todo-o-select.png"
       },
       {
         "pagePath": "pages/minePage/minePage",

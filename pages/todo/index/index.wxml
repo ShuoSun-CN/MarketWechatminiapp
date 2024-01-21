@@ -1,0 +1,33 @@
+<!--pages/todolist/index/index.wxml-->
+<view class="container">
+	<view class="search-flex {{scrolltop>200?'tophide':''}}">
+		<view class="search-bar">
+			<input type="text" maxlength="12" placeholder="请输入关键字查询" bindinput="inputSearch"></input>
+			<button class="search-btn" bindtap="submitSearch" wx:if="{{showsearch}}">搜索</button>
+		</view>
+		<button class="search-extra-btn" bindtap="onAddRecord">添加</button>
+	</view>
+
+	<scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" lower-threshold="50" bindscrolltolower="scrollLoading">
+		<view class="service-list">
+			<view class="service-item" wx:for="{{todoList}}" wx:key="{{todoId}}" url="../servicedetail/servicedetail?id={{item.id}}">
+				<!-- <view class="service-img">
+					<image src="{{item.imgurl}}" mode="aspectFill"></image>
+				</view> -->
+				<view class="service-text">
+					<view class="service-tite">{{item.content}}</view>
+					<view class="service-tags">
+						<text>{{item.createTime}}</text>
+					</view>
+					<text class="service-city">状态：{{item.status}}</text>
+        </view>
+        <view>
+          <button class="btn-gray btn-submit" bindtap="onModifyRecord" data-id="{{item.todoId}}" data-title="{{item.content}}">修改</button>
+          <button class="btn-orange btn-submit" bindtap="onRemoveRecord" data-id="{{item.todoId}}">删除</button>
+        </view>
+			</view>
+		</view>
+		<view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop"></view>
+	</scroll-view>
+</view>
+
