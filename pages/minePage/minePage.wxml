@@ -28,11 +28,22 @@
       </view> -->
       <view class="my_priview_md" bindtap="toOrder">
         <image class="my_priview" src="/images/mine_fiend.png"></image>
-        <text>我的订单</text>
+        <text>特产订单</text>
         <view class="arrow"></view>
       </view>
     </view>
- 
+    <view class="userItemListView">
+      <!-- <view class="my_priview_md" bindtap="myappointpage">
+        <image class="my_priview" src="/images/mine_fiend.png"></image>
+        <text>我的预约</text>
+        <view class="arrow"></view>
+      </view> -->
+      <view class="my_priview_md" bindtap="toHotelOrder">
+        <image class="my_priview" src="/images/mine_fiend.png"></image>
+        <text>民宿订单</text>
+        <view class="arrow"></view>
+      </view>
+    </view>
     <view class="userItemListView">
       <view class="my_priview_md" bindtap="logout">
         <image class="my_priview" src="/images/mine_fiend.png"></image>
